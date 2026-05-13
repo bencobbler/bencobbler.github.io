@@ -10,6 +10,7 @@
             background: black;
             color: white;
             overflow: hidden;
+            touch-action: manipulation;
         }
 
         #homeImage {
@@ -115,11 +116,14 @@
             width: 100vw;
             height: 100vh;
             object-fit: cover;
+
+            pointer-events: none; /* EZ A KLASSZIKUS FIX */
             z-index: 0;
         }
         .page {
-            position: absolute;
+            position: fixed;
             inset: 0;
+            z-index: 1;
         }
     </style>
 </head>
