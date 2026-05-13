@@ -70,6 +70,50 @@
             border: none;
             background: white;
         }
+        .tabbar {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .tab {
+            padding: 10px 18px;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.4);
+            color: white;
+            cursor: pointer;
+            backdrop-filter: blur(6px);
+        }
+
+        .tab.active {
+            background: white;
+            color: black;
+        }
+
+        .imageWrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+        }
+
+        #programImage {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .fullscreenImage {
+            position: absolute;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
@@ -92,17 +136,18 @@
     </div>
 
     <div id="program" class="page">
-        <div class="backButton" onclick="goHome()">← Vissza</div>
-        <h1>Programtábla</h1>
 
-        <div class="tabs">
-            <button onclick="loadPdf('Sze.pdf')">Sze</button>
-            <button onclick="loadPdf('Cs.pdf')">Cs</button>
-            <button onclick="loadPdf('P.pdf')">P</button>
-            <button onclick="loadPdf('Szo.pdf')">Szo</button>
+        <div class="backButton" onclick="goHome()">← Vissza</div>
+
+        <div class="tabbar">
+            <div class="tab active" onclick="switchDay('Sze.jpg', this)">Sze</div>
+            <div class="tab" onclick="switchDay('Cs.jpg', this)">Cs</div>
+            <div class="tab" onclick="switchDay('P.jpg', this)">P</div>
+            <div class="tab" onclick="switchDay('Szo.jpg', this)">Szo</div>
         </div>
 
-        <iframe id="pdfViewer" src="Sze.pdf"></iframe>
+        <img id="programImage" class="fullscreenImage" src="Sze.jpg" alt="Programtábla">
+
     </div>
 
     <div id="videok" class="page">
@@ -140,8 +185,16 @@
             document.getElementById("homeImage").style.display = "block";
         }
 
-        function loadPdf(fileName) {
-            document.getElementById("pdfViewer").src = fileName;
+        function loadImage(fileName) {
+            document.getElementById("programImage").src = fileName;
+        }
+
+        function switchDay(file, el) {
+            document.getElementById("programImage").src = file;
+
+            // aktív tab kezelés
+            document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+            el.classList.add("active");
         }
     </script>
 
