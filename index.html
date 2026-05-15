@@ -7,6 +7,9 @@
     <style>
         body {
             color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
             margin: 0;
             overflow-x: hidden;
             background-image: url("background.jpg");
@@ -33,18 +36,20 @@
         }
 
         #sidebar {
-            width: 220px;
-            position: fixed; /* Így mindig látható marad bal oldalon */
+            width: 250px;
+            position: fixed;
             left: 30px;
             top: 50%;
             transform: translateY(-50%);
-            z-index: 100; /* Minden felett marad */
+            z-index: 100;
         }
 
         .menuItem {
             color: white;
-            font-size: 1.8rem;
-            font-family: Arial, sans-serif;
+            font-weight: 630;
+            font-size: 1.6rem;   /* Elég nagy, hogy "odaüssön" */
+            text-transform: uppercase; /* Opcionális: csupa nagybetű a diktátor-stílushoz */
+            letter-spacing: 1px;
             cursor: pointer;
             padding: 10px 16px;
             border-radius: 10px;
@@ -61,7 +66,7 @@
             transform: translateX(10px);
             background: rgba(255, 255, 255, 0.1);
             padding-left: 12px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         #menu {
@@ -72,6 +77,10 @@
         #menu div {
             margin: 20px 0;
             cursor: pointer;
+        }
+
+        #story {
+            padding: 100px 50px 50px 300px; 
         }
 
         .page {
@@ -92,9 +101,26 @@
             display: block; 
         }
 
+        .page p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0px 0;
+            color: #e0e0e0;
+            text-align: justify;
+        }
+
+        .page h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
         .backButton {
-            position: relative;
-            z-index: 10;
+            position: fixed;
+            top: 20px;
+            left: 30px;
+            z-index: 90;
             margin-bottom: 20px;
             cursor: pointer;
             font-size: 1.2rem;
@@ -150,16 +176,9 @@
             position: relative;
             width: 100%;
             height: auto;
-            max-width: 1200px; /* Opcionális: ne legyen bántóan hatalmas monitoron */
+            max-width: 1200px;
             display: block;
             margin: 100px auto 40px auto;
-        }
-
-        .backButton {
-            position: absolute;
-            top: 20px;
-            left: 270px; 
-            z-index: 20;
         }
 
         .tabbar {
@@ -181,27 +200,21 @@
         }
 
         #program.active {
-            display: block;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            top: 0;
-            right: 0;
-            bottom: 0;
+            display: block !important;
+            overflow-y: auto;
             position: fixed;
             inset: 0;
-            width: 100vw;
-            height: 100vh;
+            left: 250px;
             background: rgba(0, 0, 0, 0.1);
-            z-index: 10;
+            z-index: 50;
+            padding: 0;
         }
         
         #program .backButton {
             position: fixed;
             top: 20px;
             left: 30px;
-            z-index: 25;
+            z-index: 90;
         }
 
         #program .tabbar {
@@ -255,11 +268,20 @@
     <div id="story" class="page">
         <div class="backButton" onclick="goHome()">← Vissza</div>
         <h1>Történetünk</h1>
-        <p>A baráti körünk minden házibulin beizzítja a mikrofont, és az éjbe nyúlva énekel (shout out a jófej szomszédoknak és főbérlőknek). Sok éve jártunk már "0. napozni" Orfűre, mire 2025-ben kiötlöttük, hogy hozhatnánk az erősítőt, és rendezhetnénk karaoke-t a pizzázónál. Az ötlet működött.
-Ezen év zárónapjának éjjelén egy stroboszkóppal és külső hangszóróval diszkóztunk a parcellánkon, de eltessékeltek (jogosan) a sátorszomszédaink. Új helynek a legforgalmasabb kereszteződést találtuk az Üllői út végi mosdóknál, amiből az lett, hogy egyre több arra járó ember szállt be a kialakult unofficial afterbulinkba, ami egy kívánságműsorból álló spontán buli volt a hajnali órákig. Az ott velünk partyzóknak megígértük, hogy jövőre már eltervezetten megtartjuk ismét a Diszkódiktátor eventünket - abban a pillanatban rácimkézve ezt a nevet.
-
-Disclaimer:
-Az esemény teljesen magánszervezésű, nonprofit, és semmi köze hozzá a Fishing on Orfű szeverzőinek. A plakátok a hivatalos FOO plakát átalakítása, semmilyen kreatív kredit nem illet minket a design-ért. Őszintén az se biztos, hogy jogilag felhasznáhatjuk-e, de szia Peti, megvan a kontaktom, pls ügyvédi felszólítólevél előtt szólj ha gáz van, és élesítünk B tervet.</p>
+        <p style="text-indent: 30px;">A baráti körünk minden házibulin beizzítja a mikrofont, és az éjbe nyúlva énekel (shout out a jófej szomszédoknak és főbérlőknek). 
+            Sok éve jártunk már "0. napozni" Orfűre, mire 2025-ben kiötlöttük, hogy hozhatnánk az erősítőt, és rendezhetnénk karaoke-t a pizzázónál. 
+            Az ötlet működött.</p>
+        <p style="text-indent: 30px;">A zárónap éjjelén egy stroboszkóppal és külső hangszóróval diszkóztunk a parcellánkon, de eltessékeltek (jogosan) a sátorszomszédaink. 
+        Új helynek a legforgalmasabb kereszteződést találtuk az Üllői út végi mosdóknál, amiből az lett, 
+        hogy egyre több arra járó fesztiválozó szállt be a kialakult unofficial afterbulinkba, ami egy kívánságműsorból álló spontán buli volt a hajnali órákig.</p>
+        <p style="text-indent: 30px;">Az ott velünk partyzóknak megígértük, hogy jövőre már eltervezetten megtartjuk ismét a Diszkódiktátor eventünket 
+        - abban a pillanatban rácimkézve ezt a nevet.</p>
+        <br/>
+        <p>Disclaimer:</p>
+        <p style="text-indent: 30px;">Az esemény teljesen magánszervezésű, nonprofit, és semmi köze hozzá a Fishing on Orfű szeverzőinek. 
+        A plakátok a hivatalos FOO plakát átalakítása, semmilyen kreatív kredit nem illet minket a design-ért. 
+        Őszintén az se biztos, hogy jogilag felhasznáhatjuk-e, de szia Peti, megvan a kontaktom, 
+        pls ügyvédi felszólítólevél előtt szólj ha gáz van, és élesítünk B tervet.</p>
     </div>
 
     <script>
