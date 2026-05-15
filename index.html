@@ -6,30 +6,60 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
         body {
-        margin: 0;
-        overflow-x: hidden;
-        background-image: url("background.jpg");
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
+            color: white;
+            margin: 0;
+            overflow-x: hidden;
+            background-image: url("background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
         }
 
         #homeImage {
-            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 280px;
+            width: calc(100vw - 280px);
             height: 100vh;
             object-fit: contain;
             display: block;
-            cursor: pointer;
         }
 
-        #overlay {
+        #sidebar {
+            width: 220px;
             position: fixed;
-            inset: 0;
-            background: rgba(80, 80, 80, 0.88);
-            display: none;
-            justify-content: center;
-            align-items: center;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .menuItem {
+            color: white;
+            font-size: 1.8rem;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            padding: 10px 16px;
+            border-radius: 10px;
+
+            background: rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(6px);
+
+            transition: transform 0.22s ease,
+                        background 0.22s ease,
+                        padding-left 0.22s ease;
+        }
+
+        .menuItem:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.18);
+            padding-left: 24px;
+            letter-spacing: 2px;
         }
 
         #menu {
@@ -46,9 +76,9 @@
             display: none;
             width: 100vw;
             height: 100vh;
-            background: #111;
             padding: 20px;
             box-sizing: border-box;
+            background: transparent;
         }
 
         .backButton {
@@ -131,16 +161,14 @@
 </head>
 <body>
 
-    <img id="homeImage" src="diszkofej.jpg" alt="diszkofej" onclick="toggleMenu()">
-
-    <div id="overlay" onclick="toggleMenu()">
-        <div id="menu" onclick="event.stopPropagation()">
-            <div onclick="openPage('diszko')">Diszkódiktátor</div>
-            <div onclick="openPage('program')">Programtábla</div>
-            <div onclick="openPage('videok')">Videók</div>
-            <div onclick="openPage('story')">Történetünk</div>
-        </div>
+    <div id="sidebar">
+        <div class="menuItem" onclick="openPage('diszko')">Diszkódiktátor</div>
+        <div class="menuItem" onclick="openPage('program')">Programtábla</div>
+        <div class="menuItem" onclick="openPage('videok')">Videók</div>
+        <div class="menuItem" onclick="openPage('story')">Történetünk</div>
     </div>
+
+    <img id="homeImage" src="diszkofej.jpg" alt="diszkofej">
 
     <div id="diszko" class="page">
         <div class="backButton" onclick="goHome()">← Vissza</div>
@@ -180,13 +208,8 @@ Az esemény teljesen magánszervezésű, nonprofit, és semmi köze hozzá a Fis
     </div>
 
     <script>
-        function toggleMenu() {
-            const overlay = document.getElementById("overlay");
-            overlay.style.display = (overlay.style.display === "flex") ? "none" : "flex";
-        }
 
         function openPage(pageId) {
-            document.getElementById("overlay").style.display = "none";
             document.getElementById("homeImage").style.display = "none";
 
             const pages = document.querySelectorAll(".page");
