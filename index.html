@@ -36,6 +36,15 @@
             display: block;
         }
 
+        #groupImage {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
         #sidebar {
             width: 250px;
             position: fixed;
@@ -80,6 +89,8 @@
             cursor: pointer;
         }
 
+        #event,
+        #videok,
         #story {
             padding: 100px 50px 50px 300px; 
         }
@@ -298,7 +309,7 @@
 <body>
 
     <div id="sidebar">
-        <div class="menuItem" onclick="openPage('diszko')">Diszkódiktátor</div>
+        <div class="menuItem" onclick="openPage('event')">Diszkódiktátor</div>
         <div class="menuItem" onclick="openPage('program')">Programtábla</div>
         <div class="menuItem" onclick="openPage('videok')">Videók</div>
         <div class="menuItem" onclick="openPage('story')">Történetünk</div>
@@ -306,10 +317,14 @@
 
     <img id="homeImage" src="diszkofej.jpg" alt="diszkofej">
 
-    <div id="diszko" class="page">
+    <div id="event" class="page">
         <div class="backButton" onclick="goHome()">← Vissza</div>
-        <h1>Diszkódiktátor</h1>
-        <p>Hamarosan...</p>
+        <h1>2026.</h1>
+        <p>06.23. 21:00
+        <br/>KaraokeArmy a nagyparkoló melletti pizzázónál
+        <br/>
+        <br/>06.28. 2:00
+        <br/>Diszkódiktátor afterbuli az Üllői út végénél található zuhanzóknál</p>
     </div>
 
     <div id="program" class="page">
@@ -340,16 +355,20 @@
             Sok éve jártunk már "0. napozni" Orfűre, mire 2025-ben kiötlöttük, hogy hozhatnánk az erősítőt, és rendezhetnénk karaoke-t a pizzázónál. 
             Az ötlet működött.</p>
         <p style="text-indent: 30px;">A zárónap éjjelén egy stroboszkóppal és külső hangszóróval diszkóztunk a parcellánkon, de eltessékeltek (jogosan) a sátorszomszédaink. 
-        Új helynek a legforgalmasabb kereszteződést találtuk az Üllői út végi mosdóknál, amiből az lett, 
+        Új helynek a legforgalmasabb kereszteződést találtuk az Üllői út végi zuhanyzóknál, amiből az lett, 
         hogy egyre több arra járó fesztiválozó szállt be a kialakult unofficial afterbulinkba, ami egy kívánságműsorból álló spontán buli volt a hajnali órákig.</p>
         <p style="text-indent: 30px;">Az ott velünk partyzóknak megígértük, hogy jövőre már eltervezetten megtartjuk ismét a Diszkódiktátor eventünket 
         - abban a pillanatban rácimkézve ezt a nevet.</p>
+        <br/>
+        <p style="text-align: right;">Kristóf és Bence</p>
         <br/>
         <p>Disclaimer:</p>
         <p style="text-indent: 30px;">Az esemény teljesen magánszervezésű, nonprofit, és semmi köze hozzá a Fishing on Orfű szeverzőinek. 
         A plakátok a hivatalos FOO plakát átalakítása, semmilyen kreatív kredit nem illet minket a design-ért. 
         Őszintén az se biztos, hogy jogilag felhasznáhatjuk-e, de szia Peti, megvan a kontaktom, 
         pls ügyvédi felszólítólevél előtt szólj ha gáz van, és élesítünk B tervet.</p>
+        
+        <img id="groupImage" src="csapat.jpg" alt="csapatfotó">
     </div>
 
     <script>
