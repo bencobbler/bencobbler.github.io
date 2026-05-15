@@ -239,15 +239,12 @@
         }
 
         .disclaimer-text {
-            text-indent: 0 !important; /* Teljesen nullázzuk a beljebb tolást */
-            text-align: justify;       /* Vagy left, ami neked jobban tetszik */
+            text-align: left;       /* Vagy left, ami neked jobban tetszik */
             font-size: 1rem !important;/* Lehet kicsit kisebb, mivel csak disclaimer */
             opacity: 0.8;              /* Kicsit halványabb, elegánsabb */
-            margin-top: 40px !important;
         }
 
         .authors-text {
-            text-indent: 0 !important;
             text-align: right !important; /* Az !important garantálja, hogy semmi se írja felül */
             font-style: italic;          /* Jól áll a neveknek a dőlt betű */
             margin-top: 20px !important;
@@ -261,6 +258,17 @@
                     background-image: url("background-mobile.jpg");
             }
 
+            .disclaimer-text {
+                text-align: left !important; /* Mobilon balra zárt */
+                display: block !important;
+            }
+
+            .authors-text {
+                text-align: right !important; /* Mobilon szigorúan jobbra zárt */
+                display: block !important;
+                width: 100% !important;
+            }
+            
             #sidebar {
                 position: static !important;
                 transform: none !important;
@@ -378,7 +386,7 @@
         <p class="authors-text">Kristóf és Bence</p>
         <br/>
         <p class="disclaimer-text">Disclaimer:</p>
-        <p style="text-indent: 30px;">Az esemény teljesen magánszervezésű, nonprofit, és semmi köze hozzá a Fishing on Orfű szeverzőinek. 
+        <p class="disclaimer-text", style="text-indent: 30px;">Az esemény teljesen magánszervezésű, nonprofit, és semmi köze hozzá a Fishing on Orfű szeverzőinek. 
         A plakátok a hivatalos FOO plakát átalakítása, semmilyen kreatív kredit nem illet minket a design-ért. 
         Őszintén az se biztos, hogy jogilag felhasznáhatjuk-e, de szia Peti, megvan a kontaktom, 
         pls ügyvédi felszólítólevél előtt szólj ha gáz van, és élesítünk B tervet.</p>
