@@ -238,6 +238,21 @@
             z-index: 25;
         }
 
+        .disclaimer-text {
+            text-indent: 0 !important; /* Teljesen nullázzuk a beljebb tolást */
+            text-align: justify;       /* Vagy left, ami neked jobban tetszik */
+            font-size: 1rem !important;/* Lehet kicsit kisebb, mivel csak disclaimer */
+            opacity: 0.8;              /* Kicsit halványabb, elegánsabb */
+            margin-top: 40px !important;
+        }
+
+        .authors-text {
+            text-indent: 0 !important;
+            text-align: right !important; /* Az !important garantálja, hogy semmi se írja felül */
+            font-style: italic;          /* Jól áll a neveknek a dőlt betű */
+            margin-top: 20px !important;
+        }
+
         @media (max-width: 768px) {
             body {
                     flex-direction: column !important;
@@ -360,9 +375,9 @@
         <p style="text-indent: 30px;">Az ott velünk partyzóknak megígértük, hogy jövőre már eltervezetten megtartjuk ismét a Diszkódiktátor eventünket 
         - abban a pillanatban rácimkézve ezt a nevet.</p>
         <br/>
-        <p style="text-align: right;">Kristóf és Bence</p>
+        <p class="authors-text">Kristóf és Bence</p>
         <br/>
-        <p>Disclaimer:</p>
+        <p class="disclaimer-text">Disclaimer:</p>
         <p style="text-indent: 30px;">Az esemény teljesen magánszervezésű, nonprofit, és semmi köze hozzá a Fishing on Orfű szeverzőinek. 
         A plakátok a hivatalos FOO plakát átalakítása, semmilyen kreatív kredit nem illet minket a design-ért. 
         Őszintén az se biztos, hogy jogilag felhasznáhatjuk-e, de szia Peti, megvan a kontaktom, 
