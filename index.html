@@ -251,17 +251,34 @@
             }
 
             .menuItem {
-                font-size: 1.1rem;
-                padding: 8px 12px;
-                background: rgba(0, 0, 0, 0.4);
+                font-size: 0.9rem !important;
+                padding: 6px 10px !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+                border-bottom: 2px solid transparent;
+                white-space: nowrap;
+            }
+
+            .menuItem:hover {
+                transform: none !important;
+                background: rgba(255, 255, 255, 0.2) !important;
+                border-bottom: 2px solid white;
             }
 
             .page {
                 left: 0 !important;
                 padding-left: 15px !important;
                 padding-right: 15px !important;
+                display: none;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
+                padding-top: 80px !important; 
+                overflow-y: auto;
             }
 
+            .page.active {
+                display: flex !important;
+            }
             #program .backButton, 
             #program .tabbar {
                 position: static;
