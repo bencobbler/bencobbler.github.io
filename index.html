@@ -34,15 +34,11 @@
 
         #sidebar {
             width: 220px;
-            position: static;
+            position: fixed; /* Így mindig látható marad bal oldalon */
             left: 30px;
             top: 50%;
             transform: translateY(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            margin-right: 20px;
+            z-index: 100; /* Minden felett marad */
         }
 
         .menuItem {
@@ -79,18 +75,21 @@
         }
 
         .page {
-            display: none; 
+            display: none;
             position: fixed;
-            inset: 0;
-            padding-left: 250px; 
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 10;
-            justify-content: center;
-            align-items: center;
+            top: 0;
+            left: 280px;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 50;
+            
+            overflow-y: auto; 
+            padding: 40px;
         }
 
         .page.active {
-            display: flex; 
+            display: block; 
         }
 
         .backButton {
@@ -148,13 +147,12 @@
         }
 
         #programImage {
-            position: static;
-            width: auto;
+            position: relative;
+            width: 100%;
             height: auto;
-            max-width: 100%; 
-            max-height: 80%;
-            object-fit: contain;
+            max-width: 1200px; /* Opcionális: ne legyen bántóan hatalmas monitoron */
             display: block;
+            margin: 100px auto 40px auto;
         }
 
         .backButton {
@@ -183,12 +181,14 @@
         }
 
         #program.active {
-            display: flex !important;
+            display: block;
             flex-direction: row;
             align-items: center;
             justify-content: center;
             gap: 40px;
-            
+            top: 0;
+            right: 0;
+            bottom: 0;
             position: fixed;
             inset: 0;
             width: 100vw;
@@ -196,43 +196,21 @@
             background: rgba(0, 0, 0, 0.1);
             z-index: 10;
         }
+        
         #program .backButton {
-            position: absolute;
-            top: 30px;
+            position: fixed;
+            top: 20px;
             left: 30px;
             z-index: 25;
         }
 
         #program .tabbar {
-            position: absolute;
-            top: 80px;
+            position: fixed;
+            top: 60px;
             left: 30px;
             display: flex;
             gap: 10px;
             z-index: 25;
-        }
-        /* Adjust layout for mobile */
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-
-            #sidebar {
-                margin: 0 0 20px 0;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-            }
-
-            #program {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            #programImage {
-                max-width: 90%;
-                margin-left: 0;
-            }
         }
     </style>
 </head>
