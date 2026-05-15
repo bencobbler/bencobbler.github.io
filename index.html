@@ -34,18 +34,14 @@
 
         #sidebar {
             width: 220px;
-            position: fixed;
+            position: static;
             left: 30px;
             top: 50%;
             transform: translateY(-50%);
-            z-index: 20;
-
+            z-index: 100;
             display: flex;
             flex-direction: column;
             gap: 18px;
-
-            position: static;
-            transform: none;
             margin-right: 20px;
         }
 
@@ -83,20 +79,19 @@
         }
 
         .page {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
+            display: none; /* Alapból minden aloldal rejtve van */
+            position: fixed;
+            inset: 0;
             width: 100vw;
             height: 100vh;
             padding: 20px;
             box-sizing: border-box;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 20;
         }
 
         .page.active {
-            display: block;
+            display: block; /* Csak az aktív oldal látszik */
         }
 
         .backButton {
@@ -155,12 +150,14 @@
 
         #programImage {
             position: static;
-            width: 100%;
+            width: auto;
             height: auto;
-            max-width: calc(100% - 240px); /* Leave space for the menu */
-            max-height: 80%;
+            max-width: 100%; 
+            max-height: 85vh;
             object-fit: contain;
             display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .fullscreenImage {
@@ -174,10 +171,26 @@
             z-index: 0;
         }
 
-        .page {
-            position: fixed;
-            inset: 0;
-            z-index: 1;
+        #program.active {
+            display: flex !important;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 30px;  
+            background: rgba(0, 0, 0, 0.9);
+        }
+        #program .backButton {
+            position: absolute;
+            top: 20px;
+            left: 260px; /* A sidebar mellett kezdődjön */
+        }
+
+        #program .tabbar {
+            position: absolute;
+            top: 60px;
+            left: 260px;
+            display: flex;
+            gap: 10px;
         }
 
         /* Adjust layout for mobile */
@@ -193,61 +206,11 @@
                 justify-content: center;
             }
 
-            #homeImage {
-                max-width: 90%;
-                max-height: 50%;
-            }
-
             #program {
                 flex-direction: column;
                 align-items: center;
             }
-
-            #programImage {
-                max-width: 90%;
-                max-height: 60%;
-            }
-        }
-
-        /* Place menu on the left and program image on the right */
-        #program {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: flex-start;
-            width: 100%;
-            height: auto; /* Allow vertical scrolling */
-            overflow-y: auto;
-        }
-
-        #sidebar {
-            flex-shrink: 0;
-            width: 220px;
-            position: static;
-            margin-right: 20px;
-        }
-
-        #programImage {
-            width: 100%;
-            height: auto;
-            max-width: calc(100% - 240px); /* Leave space for the menu */
-            object-fit: contain;
-            margin-left: 20px;
-        }
-
-        @media (max-width: 768px) {
-            #program {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            #sidebar {
-                margin: 0 0 20px 0;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-            }
-
+            
             #programImage {
                 max-width: 90%;
                 margin-left: 0;
@@ -283,7 +246,7 @@
             <div class="tab" onclick="switchDay('Szo.png', this)">Szo</div>
         </div>
 
-        <img id="programImage" class="fullscreenImage" src="Sze.png" alt="Programtábla">
+        <img id="programImage" src="Sze.png" alt="Programtábla">
 
     </div>
 
@@ -306,17 +269,28 @@ Az esemény teljesen magánszervezésű, nonprofit, és semmi köze hozzá a Fis
     <script>
 
         function openPage(pageId) {
+            // Főoldali kép elrejtése
             document.getElementById("homeImage").style.display = "none";
 
+            // Összes oldal elrejtése és az 'active' osztály levétele
             const pages = document.querySelectorAll(".page");
-            pages.forEach(page => page.style.display = "none");
+            pages.forEach(page => {
+                page.style.display = "none";
+                page.classList.remove("active");
+            });
 
-            document.getElementById(pageId).style.display = "block";
+            // A kiválasztott oldal megjelenítése
+            const activePage = document.getElementById(pageId);
+            activePage.style.display = (pageId === 'program') ? "flex" : "block";
+            activePage.classList.add("active");
         }
 
         function goHome() {
             const pages = document.querySelectorAll(".page");
-            pages.forEach(page => page.style.display = "none");
+            pages.forEach(page => {
+                page.style.display = "none";
+                page.classList.remove("active");
+            });
 
             document.getElementById("homeImage").style.display = "block";
         }
