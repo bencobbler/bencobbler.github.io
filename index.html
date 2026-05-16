@@ -265,7 +265,17 @@
                 padding-top: 20px;
                 background-image: url("background-mobile.jpg");
             }
+            html, body {
+                height: auto !important;
+                overflow-y: auto !important;
+                position: relative !important;
+            }
 
+            #home, #programok, #galeria, #jegyek { 
+                height: auto !important;
+                min-height: 100vh !important;
+                overflow: visible !important;
+            }
             .page {
                 left: 0 !important;
                 padding-left: 15px !important;
