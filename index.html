@@ -158,6 +158,7 @@
             border: none;
             background: white;
         }
+
         .tabbar {
             position: relative;
             top: 20px;
@@ -251,24 +252,31 @@
         .authors-text {
             text-align: right !important;
             font-style: italic;
+        }
 
         @media (max-width: 768px) {
             body {
-                    flex-direction: column !important;
-                    justify-content: flex-start !important;
-                    padding-top: 20px;
-                    background-image: url("background-mobile.jpg");
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                padding-top: 20px;
+                background-image: url("background-mobile.jpg");
             }
 
-            .disclaimer-text {
-                text-align: justify !important;
-                display: block !important;
+            .page {
+                left: 0 !important;
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                display: none;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
+                padding-top: 80px !important; 
+                overflow-y: auto;
+                background: rgba(0, 0, 0, 0.7);
             }
 
-            .authors-text {
-                text-align: right !important;
-                display: block !important;
-                width: 100% !important;
+            .page.active {
+                display: flex !important;
             }
             
             #menuIcon {
@@ -318,22 +326,6 @@
                 display: flex !important;
             }
 
-            .page {
-                left: 0 !important;
-                padding-left: 15px !important;
-                padding-right: 15px !important;
-                display: none;
-                flex-direction: column !important;
-                justify-content: flex-start !important;
-                align-items: center !important;
-                padding-top: 80px !important; 
-                overflow-y: auto;
-                background: rgba(0, 0, 0, 0.7);
-            }
-
-            .page.active {
-                display: flex !important;
-            }
             #program .backButton, 
             #program .tabbar {
                 position: static;
@@ -344,6 +336,17 @@
             #programImage {
                 width: 100%;
                 margin-top: 20px;
+            }
+
+            .disclaimer-text {
+                text-align: justify !important;
+                display: block !important;
+            }
+
+            .authors-text {
+                text-align: right !important;
+                display: block !important;
+                width: 100% !important;
             }
         }
     </style>
