@@ -115,7 +115,7 @@
             font-size: 1.2rem;
             min-width: 400px;
             max-width: 800px;
-            margin: auto;
+            margin: auto, auto, 0;
             color: #e0e0e0;
             text-align: justify;
         }
@@ -126,6 +126,15 @@
             padding-left: 90px;
             margin-bottom: 30px;
             letter-spacing: 1px;
+        }
+
+        .page h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            text-align: justify;
         }
 
         .backButton {
@@ -190,6 +199,7 @@
             height: auto;
             display: block;
             margin: 100px auto 40px auto;
+            border-radius: 5px;
         }
 
         #groupImage {
@@ -277,15 +287,24 @@
 
             .page {
                 left: 0 !important;
-                padding-left: 15px !important;
-                padding-right: 15px !important;
+                padding-right: 25px;
                 display: none;
                 flex-direction: column !important;
                 justify-content: flex-start !important;
-                align-items: center !important;
+                align-items: justify;
                 padding-top: 80px !important; 
                 overflow-y: auto;
                 background: rgba(0, 0, 0, 0.7);
+            }
+
+            .page h1 {
+                padding: 0, auto;
+            }
+            .page p {
+                margin: 0;
+                padding-left: 10px;
+                padding-bottom: 20px;
+                min-width: 0px;
             }
 
             .page.active {
@@ -300,9 +319,12 @@
                 font-size: 0.8rem;
             }
 
+            #story {
+                padding-left: 10px;
+            }
             #programImage {
                 min-width: 400px;
-                width: 100%;
+                width: 95%;
                 margin-top: 10px;
             }
 
@@ -334,10 +356,11 @@
     <div id="event" class="page">
         <div class="backButton" onclick="goHome()">← Vissza</div>
         <h1>2026.</h1>
-        <p style="font-size: 1.6rem; font-weight: 600;">06.23. 21:00</p>
+        <h2>06.23. 21:00</h2>
         <p>KaraokeArmy a nagyparkoló és a pizzázó közt</p>
-        <p style="font-size: 1.6rem; font-weight: 600; margin-top: 50px;">06.28. 2:00</p>
+        <h2>06.28. 2:00</h2>
         <p>Diszkódiktátor afterbuli az Üllői út végénél található zuhanzóknál</p>
+        <img id="army" src="discoarmy.jpg" alt="karaoke" style="max-width: 800px; padding-top: 20px;">
     </div>
 
     <div id="program" class="page">
