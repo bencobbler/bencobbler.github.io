@@ -97,14 +97,13 @@
         #event,
         #videok,
         #story {
-            padding: 100px 50px 50px 300px; 
         }
 
         .page {
             display: none;
             position: fixed;
             top: 0;
-            left: 280px;
+            left: 300px;
             right: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0.9);
@@ -119,8 +118,9 @@
 
         .page p {
             font-size: 1.2rem;
+            min-width: 400px;
             max-width: 800px;
-            margin: 0px 0;
+            margin: auto;
             color: #e0e0e0;
             text-align: justify;
         }
@@ -128,6 +128,7 @@
         .page h1 {
             font-size: 3rem;
             font-weight: 800;
+            padding-left: 90px;
             margin-bottom: 30px;
             letter-spacing: 1px;
         }
@@ -191,6 +192,9 @@
             margin: 100px auto 40px auto;
         }
 
+        #groupImage {
+            margin: 40px auto;
+        }
         .disclaimer-title {
             text-align: left;
             font-size: 0.8rem !important;
@@ -204,16 +208,14 @@
         }
 
         @media (max-width: 768px), (orientation: landscape) and (max-height: 500px) {
-            body {
-                flex-direction: column
-                justify-content: flex-start
-                padding-top: 30px;
-                background-image: url("background-mobile.jpg");
-            }
             html, body {
                 height: auto !important;
                 overflow-y: auto !important;
                 position: relative !important;
+            }
+            body {
+                padding-top: 30px;
+                background-image: url("background-mobile.jpg");
             }
 
             #homeImage {
