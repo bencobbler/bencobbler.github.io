@@ -27,7 +27,6 @@
             flex-direction: row;
             height: 100vh;
         }
-
         #homeImage {
             width: auto;
             height: auto;
@@ -36,7 +35,6 @@
             object-fit: contain;
             display: block;
         }
-
         #groupImage {
             display: block;
             width: 100%;
@@ -45,7 +43,6 @@
             margin: 30px 0;
             border-radius: 8px;
         }
-
         #sidebar {
             width: 250px;
             position: fixed;
@@ -54,11 +51,9 @@
             transform: translateY(-50%);
             z-index: 100;
         }
-
         #menuIcon {
             display: none;
         }
-
         .menuItem {
             color: white;
             font-weight: 630;
@@ -76,24 +71,20 @@
                         background 0.22s ease,
                         padding-left 0.22s ease;
         }
-
         .menuItem:hover {
             transform: translateX(10px);
             background: rgba(255, 255, 255, 0.1);
             padding-left: 12px;
             letter-spacing: 1.5px;
         }
-
         #menu {
             text-align: center;
             font-size: 2rem;
         }
-
         #menu div {
             margin: 20px 0;
             cursor: pointer;
         }
-
         .page {
             display: none;
             position: fixed;
@@ -106,11 +97,9 @@
             overflow-y: auto; 
             padding: 40px;
         }
-
         .page.active {
             display: block; 
         }
-
         .page p {
             font-size: 1.2rem;
             min-width: 400px;
@@ -119,7 +108,6 @@
             color: #e0e0e0;
             text-align: justify;
         }
-
         .page h1 {
             font-size: 3rem;
             font-weight: 800;
@@ -127,7 +115,6 @@
             margin-bottom: 30px;
             letter-spacing: 1px;
         }
-
         .page h2 {
             font-size: 1.6rem;
             font-weight: 600;
@@ -136,7 +123,6 @@
             letter-spacing: 0.5px;
             text-align: justify;
         }
-
         .backButton {
             position: fixed;
             top: 20px;
@@ -156,14 +142,13 @@
             padding-left: 12px;
             letter-spacing: 1.5px;
         }
-
         #program.active {
             display: block !important;
             overflow-y: auto; 
             overflow-x: auto; 
             position: fixed;
             inset: 0;
-            top: 50px;
+            top: 0px;
             left: 300px;
             background: rgba(0, 0, 0, 0.1);
             z-index: 50;
@@ -192,20 +177,25 @@
             background: white;
             color: black;
         }
-        #programImage {
-            position: relative;
-            min-width: 900px;
-            max-width: 1200px;
-            height: auto;
+        .program-slider {
             display: block;
-            margin: 100px auto 40px auto;
+            width: 100%;
+            max-width: 1200px;
+            margin: 150px auto 40px auto;
+        }
+        .slider-img {
+            display: none;
+            width: 100%;
+            height: auto;
             border-radius: 5px;
+        }
+        .slider-img.desktop-active {
+            display: block;
         }
         #story p {
             margin-left: auto;
             margin-right: auto;
         }
-
         #groupImage {
             margin: 40px auto;
         }
@@ -219,7 +209,6 @@
             font-size: 0.7rem !important;
             opacity: 0.8;
         }
-
         @media (max-width: 768px), (orientation: landscape) and (max-height: 500px) {
             html, body {
                 height: auto !important;
@@ -230,13 +219,11 @@
                 padding-top: 30px;
                 background-image: url("background-mobile.jpg");
             }
-
             #homeImage {
                 margin-top: 70px !important; 
                 max-width: 80% !important;  
                 height: auto !important;
             }
-
             #sidebar {
                 display: none !important;
                 position: fixed !important;
@@ -252,8 +239,7 @@
                 justify-content: flex-start !important;
                 align-items: center !important;
                 gap: 15px !important;
-            }
-            
+            } 
             #menuIcon {
                 display: block !important;
                 position: fixed !important;
@@ -268,7 +254,6 @@
                 backdrop-filter: blur(5px) !important;
                 border-radius: 8px !important;
             }
-
             .menuItem {
                 font-size: 1.5rem !important;
                 padding: 10px 20px !important;
@@ -277,18 +262,15 @@
                 width: max-content !important;
                 text-align: center !important;
             }
-
             .menuItem:hover {
                 transform: none !important;
                 background: rgba(255, 255, 255, 0.2) !important;
                 border-bottom: 2px solid white;
             }
-
             #sidebar.open {
                 display: flex !important;
                 padding-top: 100px
             }
-
             .page {
                 left: 0 !important;
                 padding-right: 25px;
@@ -300,7 +282,6 @@
                 overflow-y: auto;
                 background: rgba(0, 0, 0, 0.7);
             }
-
             .page h1 {
                 padding-left: 30px;
             }
@@ -310,11 +291,9 @@
                 padding-bottom: 20px;
                 min-width: 0px;
             }
-
             .page.active {
                 display: flex !important;
-            }
-            
+            }       
             .tabbar {
                 margin-bottom: 15px;
             }
@@ -322,22 +301,34 @@
                 padding: 5px 10px;
                 font-size: 0.8rem;
             }
-
+            .program-slider {
+                display: flex !important;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                width: 95%;
+                margin-top: 60px;
+                padding-bottom: 20px;
+            }
+            .program-slider::-webkit-scrollbar {
+                display: none;
+            }
+            .slider-img {
+                display: block !important;
+                flex: 0 0 100%;
+                width: 100%;
+                object-fit: contain;
+                scroll-snap-align: start;
+                border-radius: 0;
+            }   
             #story {
                 padding-left: 10px;
             }
-            #programImage {
-                min-width: 400px;
-                width: 95%;
-                margin-top: 10px;
-            }
-
             .disclaimer-title {
                 text-align: left !important;
                 display: block !important;
                 width: 100% !important;
             }
-
             .disclaimer-text {
                 text-align: justify !important;
                 display: block !important;
@@ -368,18 +359,20 @@
     </div>
 
     <div id="program" class="page">
-
         <div class="backButton" onclick="goHome()">← Vissza</div>
-
         <div class="tabbar">
-            <div class="tab active" onclick="switchDay('Sze.png', this)">Szerda</div>
-            <div class="tab" onclick="switchDay('Cs.png', this)">Csütörtök</div>
-            <div class="tab" onclick="switchDay('P.png', this)">Péntek</div>
-            <div class="tab" onclick="switchDay('Szo.png', this)">Szombat</div>
+            <div class="tab active" onclick="switchDay(0, this)">Szerda</div>
+            <div class="tab" onclick="switchDay(1, this)">Csütörtök</div>
+            <div class="tab" onclick="switchDay(2, this)">Péntek</div>
+            <div class="tab" onclick="switchDay(3, this)">Szombat</div>
         </div>
-
-        <img id="programImage" src="Sze.png" alt="Programtábla">
-
+        
+        <div id="programSlider" class="program-slider">
+            <img class="slider-img" src="Sze.png" alt="Szerda">
+            <img class="slider-img" src="Cs.png" alt="Csütörtök">
+            <img class="slider-img" src="P.png" alt="Péntek">
+            <img class="slider-img" src="Szo.png" alt="Szombat">
+        </div>
     </div>
 
     <div id="videok" class="page">
@@ -410,6 +403,11 @@
     </div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const images = document.querySelectorAll('.slider-img');
+            if(images.length > 0) images[0].classList.add('desktop-active');
+        });
+
         function toggleMenu() {
             const sidebar = document.getElementById("sidebar");
             sidebar.classList.toggle("open");
@@ -436,8 +434,39 @@
             const activePage = document.getElementById(pageId);
             activePage.style.display = (pageId === 'program') ? "flex" : "block";
             activePage.classList.add("active");
+
+            if (pageId === 'program') {
+                const slider = document.getElementById("programSlider");
+                slider.scrollLeft = 0;
+                
+                const tabs = document.querySelectorAll(".tab");
+                tabs.forEach(t => t.classList.remove("active"));
+                if(tabs.length > 0) tabs[0].classList.add("active");
+
+                const images = document.querySelectorAll('.slider-img');
+                images.forEach(img => img.classList.remove('desktop-active'));
+                if(images.length > 0) images[0].classList.add('desktop-active');
+            }
         }
 
+        function switchDay(index, el) {
+            document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+            el.classList.add("active");
+
+            const slider = document.getElementById("programSlider");
+            const images = document.querySelectorAll('.slider-img');
+
+            if (window.innerWidth <= 768) {
+                const imageWidth = slider.clientWidth;
+                slider.scrollTo({
+                    left: index * imageWidth,
+                    behavior: 'smooth'
+                });
+            } else {
+                images.forEach(img => img.classList.remove('desktop-active'));
+                images[index].classList.add('desktop-active');
+            }
+        }
         function goHome() {
             const pages = document.querySelectorAll(".page");
             pages.forEach(page => {
@@ -448,16 +477,6 @@
             document.getElementById("homeImage").style.display = "block";
         }
 
-        function loadImage(fileName) {
-            document.getElementById("programImage").src = fileName;
-        }
-
-        function switchDay(file, el) {
-            document.getElementById("programImage").src = file;
-
-            document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-            el.classList.add("active");
-        }
     </script>
 
 </body>
