@@ -35,14 +35,6 @@
             object-fit: contain;
             display: block;
         }
-        #groupImage {
-            display: block;
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-            margin: 30px 0;
-            border-radius: 8px;
-        }
         #sidebar {
             width: 250px;
             position: fixed;
@@ -95,16 +87,18 @@
             background: rgba(0, 0, 0, 0.9);
             z-index: 50;
             overflow-y: auto; 
-            padding: 40px;
+            padding: 100px;
         }
         .page.active {
             display: block; 
         }
         .page p {
+            text-indent: 30px;
             font-size: 1.2rem;
             min-width: 400px;
             max-width: 800px;
-            margin: auto, auto, 0;
+            margin-left: auto;
+            margin-right: auto;
             color: #e0e0e0;
             text-align: justify;
         }
@@ -112,16 +106,19 @@
             font-size: 3rem;
             font-weight: 800;
             padding-left: 90px;
-            margin-bottom: 30px;
+            min-width: 400px;
+            max-width: 800px;
+            margin: 0 auto 30px;
             letter-spacing: 1px;
         }
         .page h2 {
             font-size: 1.6rem;
             font-weight: 600;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            min-width: 400px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
             letter-spacing: 0.5px;
-            text-align: justify;
         }
         .backButton {
             position: fixed;
@@ -141,6 +138,14 @@
             background: rgba(255, 255, 255, 0.1);
             padding-left: 12px;
             letter-spacing: 1.5px;
+        }
+        #army {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 40px auto;
+            border-radius: 8px;
         }
         #program.active {
             display: block !important;
@@ -192,12 +197,13 @@
         .slider-img.desktop-active {
             display: block;
         }
-        #story p {
-            margin-left: auto;
-            margin-right: auto;
-        }
         #groupImage {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            height: auto;
             margin: 40px auto;
+            border-radius: 8px;
         }
         .disclaimer-title {
             text-align: left;
@@ -273,7 +279,7 @@
             }
             .page {
                 left: 0 !important;
-                padding-right: 25px;
+                padding: 20px;
                 display: none;
                 flex-direction: column !important;
                 justify-content: flex-start !important;
@@ -284,6 +290,9 @@
             }
             .page h1 {
                 padding-left: 30px;
+            }
+            .page h2 {
+                margin: 10px;
             }
             .page p {
                 margin: 0;
@@ -318,9 +327,6 @@
                 width: 100%;
                 object-fit: contain;
                 border-radius: 0;
-            }   
-            #story {
-                padding-left: 10px;
             }
             .disclaimer-title {
                 text-align: left !important;
@@ -353,7 +359,7 @@
         <p>KaraokeArmy a nagyparkoló és a pizzázó közt</p>
         <h2>06.28. 2:00</h2>
         <p>Diszkódiktátor afterbuli az Üllői út végénél található zuhanyzóknál</p>
-        <img id="army" src="discoarmy.jpg" alt="karaoke" style="max-width: 800px; padding-top: 20px;">
+        <img id="army" src="discoarmy.jpg" alt="karaoke">
     </div>
 
     <div id="program" class="page">
@@ -382,19 +388,19 @@
     <div id="story" class="page">
         <div class="backButton" onclick="goHome()">← Vissza</div>
         <h1>Történetünk</h1>
-        <p style="text-indent: 30px;">A baráti körünk minden házibulin beizzítja a mikrofont, és az éjbe nyúlva énekel (shout out a jófej szomszédoknak és főbérlőknek). 
+        <p>A baráti körünk minden házibulin beizzítja a mikrofont, és az éjbe nyúlva énekel (shout out a jófej szomszédoknak és főbérlőknek). 
             Sok éve jártunk már "0. napozni" Orfűre, mire 2025-ben kiötlöttük, hogy hozhatnánk az erősítőt, és rendezhetnénk karaoke-t a pizzázónál. 
             Az ötlet működött.</p>
-        <p style="text-indent: 30px;">A zárónap éjjelén egy stroboszkóppal és külső hangszóróval diszkóztunk a parcellánkon, de eltessékeltek (jogosan) a sátorszomszédaink. 
+        <p>A zárónap éjjelén egy stroboszkóppal és külső hangszóróval diszkóztunk a parcellánkon, de eltessékeltek (jogosan) a sátorszomszédaink. 
         Új helynek a legforgalmasabb kereszteződést találtuk az Üllői út végi zuhanyzóknál, amiből az lett, 
         hogy egyre több arra járó fesztiválozó szállt be a kialakult unofficial afterpartynkba, ami egy kívánságműsorból álló spontán buli volt a hajnali órákig.</p>
-        <p style="text-indent: 30px;">Az ott velünk partyzóknak megígértük, hogy jövőre már eltervezetten megtartjuk ismét a Diszkódiktátor eventünket 
+        <p>Az ott velünk partyzóknak megígértük, hogy jövőre már eltervezetten megtartjuk ismét a Diszkódiktátor eventünket 
         - abban a pillanatban rácimkézve ezt a nevet.</p>
         
         <img id="groupImage" src="csapat.jpg" alt="csapatfotó">
         
-        <p class="disclaimer-title" style="padding-bottom: 0;">Nyilatkozat:</p>
-        <p class="disclaimer-text", style="text-indent: 30px;">Ez a karaoke esemény egy teljesen privát kezdeményezésű, nonprofit baráti összejövetel, amely nem minősül hivatalosan szervezett rendezvénynek.
+        <p class="disclaimer-title" style="padding-bottom: 0; text-indent: 0px;">Nyilatkozat:</p>
+        <p class="disclaimer-text" style="text-indent: 20px;">Ez a karaoke esemény egy teljesen privát kezdeményezésű, nonprofit baráti összejövetel, amely nem minősül hivatalosan szervezett rendezvénynek.
             A programon való részvétel ingyenes és önkéntes. Az eseménynek semmilyen hivatalos vagy jogi kapcsolata nincs a Fishing on Orfű szervezőivel, márkájával vagy lebonyolításával.
             Csupán egy csapat zeneszerető ember gyűlik össze hangolódni a nagyparkoló környékén. A változtatás jogát fenntartjuk.
             A plakátokhoz az idei FOO plakátot vettük referenciaként, annak parodisztikus újragondolása.</p>
