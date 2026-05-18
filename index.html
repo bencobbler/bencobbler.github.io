@@ -410,7 +410,11 @@
             const sidebar = document.getElementById("sidebar");
             sidebar.classList.toggle("open");
         }
-
+        document.getElementById("sidebar").addEventListener("click", function(event) {
+            if (event.target === this) {
+                this.classList.remove("open");
+            }
+        });
         document.querySelectorAll('.menuItem').forEach(item => {
             item.addEventListener('click', () => {
                 const sidebar = document.getElementById("sidebar");
