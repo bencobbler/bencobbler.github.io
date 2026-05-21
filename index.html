@@ -29,17 +29,14 @@
             padding-bottom: 50px;
         }
         .intro {
+            font-family: 'Times New Roman', Times, serif;
             font-size: 3rem;
             font-weight: 900;
             line-height: 4.3;
             text-transform: uppercase;
             text-align: center;
             color: #ffffff;
-            filter: drop-shadow(-2px -2px 0px #000000) 
-                    drop-shadow(2px -2px 0px #000000) 
-                    drop-shadow(-2px 2px 0px #000000) 
-                    drop-shadow(2px 2px 0px #000000) !important;
-            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+            filter: url(#vastag-kontur) !important;
             margin: 60px auto 100px auto;
             letter-spacing: 2px;
             max-width: 90%;
@@ -251,11 +248,7 @@
             }
             .intro {
                 font-size: clamp(0.1rem, 5vw, 2.5rem);
-                filter: drop-shadow(-1px -1px 0px #000000) 
-                        drop-shadow(1px -1px 0px #000000) 
-                        drop-shadow(-1px 1px 0px #000000) 
-                        drop-shadow(1px 1px 0px #000000) !important;
-                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+                filter: url(#vekony-kontur) !important;
                 line-height: 3;
                 margin-top: 30px;
                 margin-bottom: 30px;
@@ -525,6 +518,28 @@
         document.querySelector(".intro").style.display = "block";
     }
     </script>
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="vastag-kontur">
+        <feMorphology operator="dilate" radius="6" in="SourceAlpha" result="thicken" />
+        <feFlood flood-color="#000000" result="flood" />
+        <feComposite in="flood" in2="thicken" operator="in" result="shadow" />
+        <feMerge>
+            <feMergeNode in="shadow" />
+            <feMergeNode in="SourceGraphic" />
+        </feMerge>
+        </filter>
 
+        <filter id="vekony-kontur">
+        <feMorphology operator="dilate" radius="3" in="SourceAlpha" result="thicken" />
+        <feFlood flood-color="#000000" result="flood" />
+        <feComposite in="flood" in2="thicken" operator="in" result="shadow" />
+        <feMerge>
+            <feMergeNode in="shadow" />
+            <feMergeNode in="SourceGraphic" />
+        </feMerge>
+        </filter>
+    </defs>
+    </svg>
 </body>
 </html>
