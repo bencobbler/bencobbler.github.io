@@ -9,7 +9,7 @@
     <style>
         body {
             color: white;
-            font-family: Arial, Helvetica, sans-serif !important;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             letter-spacing: 0.5px;
             -webkit-font-smoothing: antialiased;
@@ -29,13 +29,17 @@
             padding-bottom: 50px;
         }
         .intro {
-            font-size: 2.9rem;
+            font-size: 3rem;
             font-weight: 900;
             line-height: 4.3;
             text-transform: uppercase;
             text-align: center;
             color: #ffffff;
-            -webkit-text-stroke: 2px rgb(0, 0, 0);
+            text-shadow: 
+                -1px -1px 0 #000,  1px -1px 0 #000,
+                -1px  1px 0 #000,  1px  1px 0 #000,
+                -2px  0px 0 #000,  2px  0px 0 #000,
+                0px -2px 0 #000,  0px  2px 0 #000;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
             margin: 60px auto 100px auto;
             letter-spacing: 2px;
