@@ -162,13 +162,12 @@
             padding-left: 12px;
             letter-spacing: 1.5px;
         }
-        #army {
+        .imagePage {
             display: block;
             width: 100%;
             max-width: 800px;
             height: auto;
-            margin: 40px auto;
-            border-radius: 8px;
+            margin: 20px auto;
         }
         #program.active {
             display: block !important;
@@ -221,11 +220,6 @@
             display: block;
         }
         #groupImage {
-            display: block;
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-            margin: 40px auto;
             border-radius: 8px;
         }
         .disclaimer-title {
@@ -378,14 +372,16 @@
         <div class="menuItem" onclick="openPage('videok')">Videók</div>
         <div class="menuItem" onclick="openPage('story')">Történetünk</div>
     </div>
-    <h1 class="intro">
-        Megérkezett <span class="diszkoleon">Diszkóleon</span>:</br>
-        a diszkófejű nagyúr,</br>
-        a tempó diktálója,</br>
-        a dallamok irányítója,</br>
-        a végtelen hatalmú.</br>
-        Megérkezett a
-    </h1>
+    <div id="homePage">
+        <h1 class="intro">
+            Megérkezett <span class="diszkoleon">Diszkóleon</span>:</br>
+            a diszkófejű nagyúr,</br>
+            a tempó diktálója,</br>
+            a dallamok irányítója,</br>
+            a végtelen hatalmú.</br>
+            Megérkezett a
+        </h1>
+    </div>
     <img id="homeImage" src="diszkofej.jpg" alt="diszkofej">
 
     <div id="event" class="page">
@@ -395,7 +391,8 @@
         <p>KaraokeArmy a nagyparkoló és a pizzázó közt</p>
         <h2>06.28. 2:00</h2>
         <p>Diszkódiktátor afterbuli az Üllői út végénél található zuhanyzóknál</p>
-        <img id="army" src="discoarmy.jpg" alt="karaoke">
+        <img id="army" class="imagePage" src="discoarmy.jpg" alt="karaoke">
+        <img id="after" class="imagePage" src="diszkogomb.jpg" alt="afterparty">
     </div>
 
     <div id="program" class="page">
@@ -433,7 +430,7 @@
         <p>Az ott velünk partyzóknak megígértük, hogy jövőre már eltervezetten megtartjuk ismét a Diszkódiktátor eventünket 
         - abban a pillanatban rácimkézve ezt a nevet.</p>
         
-        <img id="groupImage" src="csapat.jpg" alt="csapatfotó">
+        <img id="groupImage" class="imagePage" src="csapat.jpg" alt="csapatfotó">
         
         <p class="disclaimer-title" style="padding-bottom: 0; text-indent: 0px;">Nyilatkozat:</p>
         <p class="disclaimer-text" style="text-indent: 20px;">Ez a karaoke esemény egy teljesen privát kezdeményezésű, nonprofit baráti összejövetel, amely nem minősül hivatalosan szervezett rendezvénynek.
