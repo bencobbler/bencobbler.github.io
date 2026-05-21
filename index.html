@@ -35,12 +35,11 @@
             text-transform: uppercase;
             text-align: center;
             color: #ffffff;
-            text-shadow: 
-                -1px -1px 0 #000,  1px -1px 0 #000,
-                -1px  1px 0 #000,  1px  1px 0 #000,
-                -2px  0px 0 #000,  2px  0px 0 #000,
-                0px -2px 0 #000,  0px  2px 0 #000;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            filter: drop-shadow(-2px -2px 0px #000000) 
+                    drop-shadow(2px -2px 0px #000000) 
+                    drop-shadow(-2px 2px 0px #000000) 
+                    drop-shadow(2px 2px 0px #000000) !important;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
             margin: 60px auto 100px auto;
             letter-spacing: 2px;
             max-width: 90%;
