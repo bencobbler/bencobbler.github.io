@@ -46,7 +46,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
     font-weight: 900;
-    line-height: 2;
+    line-height: 2.5;
     text-transform: uppercase;
     text-align: center;
     color: #ffffff;
@@ -265,7 +265,7 @@ body {
         margin-top: 40px;
     }
     #homeImage {
-        max-width: 75% !important;  
+        max-width: 80% !important;  
         height: auto !important;
     }
     #sidebar {
