@@ -257,19 +257,15 @@ body {
     }
     body {
         padding-top: 30px;
-        padding-bottom: 0px;
-        margin-bottom: 0px;
         background-image: url("images/background-mobile.jpg");
     }
     .intro {
-        font-size: clamp(0.1rem, 5vw, 1.2rem);
-        line-height: 1.7;
+        font-size: clamp(0.1rem, 5vw, 2rem);
+        line-height: 2;
         filter: url(#vekony-kontur) !important;
-        margin-top: 0px;
+        margin-top: 40px;
     }
     #homeImage {
-        padding-bottom: 0px;
-        margin-bottom: 0px;
         max-width: 80% !important;  
         height: auto !important;
     }
