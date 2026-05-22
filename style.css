@@ -260,9 +260,10 @@ body {
         background-image: url("images/background-mobile.jpg");
     }
     .intro {
+        line-height: 2.2;
         font-size: clamp(0.1rem, 5vw, 1.2rem);
         filter: url(#vekony-kontur) !important;
-        margin-top: 40px;
+        margin-top: 35px;
     }
     #homeImage {
         max-width: 75% !important;  
