@@ -10,7 +10,7 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
     margin: 0;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
     display: flex;
     justify-content: flex-start !important;
     align-items: center;
@@ -21,6 +21,7 @@ body {
     overflow-x: hidden;
     box-sizing: border-box;
 }
+
 .start-anim .line-1 { animation: fadeInLine 3s ease-out 0s forwards; }
 .start-anim .line-2 { animation: fadeInLine 1.5s ease-out 2.5s forwards; }
 .start-anim .line-3 { animation: fadeInLine 1.5s ease-out 4s forwards; }
@@ -29,7 +30,7 @@ body {
 .start-anim .line-6 { animation: fadeInLine 2s ease-out 8.5s forwards; }
 
 .start-anim #homeImage {
-    animation: fadeInLine 2.8s ease-out 10s forwards;
+    animation: fadeInLine 3s ease-out 10.5s forwards;
 }
 
 @keyframes fadeInLine {
@@ -72,7 +73,7 @@ body {
     opacity: 0;
     width: 100%;
     max-width: 600px;
-    margin: 0px auto 40px auto;
+    margin: 0px auto 30px auto;
     flex-shrink: 0;
 }
 #sidebar {
@@ -260,12 +261,12 @@ body {
         background-image: url("images/background-mobile.jpg");
     }
     .intro {
-        font-size: clamp(0.1rem, 5vw, 1.5rem);
+        font-size: clamp(0.1rem, 5vw, 1.2rem);
         filter: url(#vekony-kontur) !important;
         margin-top: 40px;
     }
     #homeImage {
-        max-width: 80% !important;  
+        max-width: 70% !important;  
         height: auto !important;
     }
     #sidebar {
