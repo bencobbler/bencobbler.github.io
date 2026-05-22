@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     const images = document.querySelectorAll('.slider-img');
     if(images.length > 0) images[0].classList.add('desktop-active');
+
+    document.body.classList.add('start-anim');
 });
 
 function toggleMenu() {
@@ -72,6 +74,21 @@ function goHome() {
         page.classList.remove("active");
     });
 
-    document.getElementById("homeImage").style.display = "block";
-    document.querySelector(".intro").style.display = "block";
+    const introText = document.querySelector(".intro");
+    const homeImg = document.getElementById("homeImage");
+
+    introText.style.display = "block";
+    homeImg.style.display = "block";
+
+    // Visszatéréskor azonnal mutassunk mindent, ne legyen megint végigpörgetés
+    const lines = document.querySelectorAll(".intro .line");
+    lines.forEach(line => {
+        line.style.opacity = "1";
+        line.style.transform = "translateY(0)";
+        line.style.animation = "none"; // Kikapcsolja a CSS animációt
+    });
+
+    homeImg.style.opacity = "1";
+    homeImg.style.transform = "translateY(0)";
+    homeImg.style.animation = "none";  // Kikapcsolja a CSS animációt
 }
