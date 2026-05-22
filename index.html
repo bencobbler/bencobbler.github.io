@@ -1,117 +1,379 @@
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0F0F19">
-    <title>Diszkódiktátor</title>
-    <link rel="icon" type="image/png" href="favicon-F-nobg.png">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-            <filter id="vastag-kontur">
-            <feMorphology operator="dilate" radius="6" in="SourceAlpha" result="thicken" />
-            <feFlood flood-color="#000000" result="flood" />
-            <feComposite in="flood" in2="thicken" operator="in" result="shadow" />
-            <feMerge>
-                <feMergeNode in="shadow" />
-                <feMergeNode in="SourceGraphic" />
-            </feMerge>
-            </filter>
+body {
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    -webkit-font-smoothing: antialiased;
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: flex-start !important;
+    align-items: center;
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 100vh;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+.start-anim .line-1 { animation: fadeInLine 3s ease-out 0s forwards; }
+.start-anim .line-2 { animation: fadeInLine 1.5s ease-out 2.5s forwards; }
+.start-anim .line-3 { animation: fadeInLine 1.5s ease-out 4s forwards; }
+.start-anim .line-4 { animation: fadeInLine 1.5s ease-out 5.5s forwards; }
+.start-anim .line-5 { animation: fadeInLine 1.5s ease-out 7s forwards; }
+.start-anim .line-6 { animation: fadeInLine 2s ease-out 8.5s forwards; }
 
-            <filter id="vekony-kontur">
-            <feMorphology operator="dilate" radius="3" in="SourceAlpha" result="thicken" />
-            <feFlood flood-color="#000000" result="flood" />
-            <feComposite in="flood" in2="thicken" operator="in" result="shadow" />
-            <feMerge>
-                <feMergeNode in="shadow" />
-                <feMergeNode in="SourceGraphic" />
-            </feMerge>
-            </filter>
-        </defs>
-    </svg>
+.start-anim #homeImage {
+    animation: fadeInLine 3s ease-out 10.5s forwards;
+}
 
-    <div id="homePage">
-        <img id="menuIcon" src="images/hamburger.png" alt="Menü" onclick="toggleMenu()">
+@keyframes fadeInLine {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.intro {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 2.5;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff;
+    filter: url(#vastag-kontur) !important;
+    margin: 60px auto 10px auto;
+    max-width: 90%;
+    width: max-content;
+    z-index: 10;
+    width: 100%;
+    max-width: 800px;
+}
+.intro .line {
+    display: block;
+    opacity: 0;
+}
+.diszkoleon {
+    color: #E7BCA9;
+    letter-spacing: -1px;"
+    font-weight: 800;
+}
+#homeImage {
+    display: block;
+    opacity: 0;
+    width: 100%;
+    max-width: 600px;
+    margin: 0px auto 40px auto;
+    flex-shrink: 0;
+}
+#sidebar {
+    width: 250px;
+    position: fixed;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+#menuIcon {
+    display: none;
+}
+.menuItem {
+    color: white;
+    font-weight: 630;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding: 10px 16px;
+    border-radius: 10px;
 
-        <div id="sidebar">
-            <div class="menuItem" onclick="openPage('event')">Eventek</div>
-            <div class="menuItem" onclick="openPage('program')">Programtábla</div>
-            <div class="menuItem" onclick="openPage('videok')">Videók</div>
-            <div class="menuItem" onclick="openPage('story')">Történetünk</div>
-        </div>
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
 
-        <h1 class="intro">
-            <span class="line line-1">Megérkezett <span class="diszkoleon">Diszkóleon</span>:</span>
-            <span class="line line-2">a diszkófejű nagyúr,</span>
-            <span class="line line-3">a tempó diktálója,</span>
-            <span class="line line-4">a dallamok irányítója,</span>
-            <span class="line line-5">a végtelen hatalmú.</span>
-            <span class="line line-6" style="margin-top: 20px;">Megérkezett a</span>
-        </h1>
-
-        <img id="homeImage" src="images/diszkofej.jpg" alt="diszkofej">
-    </div>
-
-    <div id="event" class="page">
-        <div class="backButton" onclick="goHome()">← Vissza</div>
-        <h1>2026.</h1>
-        <h2>06.23. 21:00</h2>
-        <p>KaraokeArmy a nagyparkoló és a pizzázó közt</p>
-        <h2>06.28. 2:00</h2>
-        <p>Diszkódiktátor afterbuli az Üllői út végénél található zuhanyzóknál</p>
-        <img id="army" class="imagePage" src="images/discoarmy.jpg" alt="karaoke">
-        <img id="after" class="imagePage" src="images/diszkogomb.jpg" alt="afterparty">
-    </div>
-
-    <div id="program" class="page">
-        <div class="backButton" onclick="goHome()">← Vissza</div>
-        
-        <div class="tabbar">
-            <div class="tab active" onclick="switchDay(0, this)">Szerda</div>
-            <div class="tab" onclick="switchDay(1, this)">Csütörtök</div>
-            <div class="tab" onclick="switchDay(2, this)">Péntek</div>
-            <div class="tab" onclick="switchDay(3, this)">Szombat</div>
-        </div>
-        
-        <div id="programSlider" class="program-slider">
-            <img class="slider-img" src="images/Sze.png" alt="Szerda">
-            <img class="slider-img" src="images/Cs.png" alt="Csütörtök">
-            <img class="slider-img" src="images/P.png" alt="Péntek">
-            <img class="slider-img" src="images/Szo.png" alt="Szombat">
-        </div>
-    </div>
-
-    <div id="videok" class="page">
-        <div class="backButton" onclick="goHome()">← Vissza</div>
-        <h1>Videók</h1>
-        <p>Hamarosan...</p>
-    </div>
-
-    <div id="story" class="page">
-        <div class="backButton" onclick="goHome()">← Vissza</div>
-        <h1>Történetünk</h1>
-        <p>A baráti körünk minden házibulin beizzítja a mikrofont, és az éjbe nyúlva énekel (shout out a jófej szomszédoknak és főbérlőknek). 
-            Sok éve jártunk már "0. napozni" Orfűre, mire 2025-ben kiötlöttük, hogy hozhatnánk az erősítőt, és rendezhetnénk karaoke-t a pizzázónál. 
-            Az ötlet működött.</p>
-        <p>A zárónap éjjelén egy stroboszkóppal és külső hangszóróval diszkóztunk a parcellánkon, de eltessékeltek (jogosan) a sátorszomszédaink. 
-        Új helynek a legforgalmasabb kereszteződést találtuk az Üllői út végi zuhanyzóknál, amiből az lett, 
-        hogy egyre több arra járó fesztiválozó szállt be a kialakult unofficial afterpartynkba, ami egy kívánságműsorból álló spontán buli volt a hajnali órákig.</p>
-        <p>Az ott velünk partyzóknak megígértük, hogy jövőre már eltervezetten megtartjuk ismét a Diszkódiktátor eventünket 
-        - abban a pillanatban rácimkézve ezt a nevet.</p>
-        
-        <img id="groupImage" class="imagePage" src="images/csapat.jpg" alt="csapatfotó">
-        
-        <p class="disclaimer-title" style="padding-bottom: 0; text-indent: 0px;">Nyilatkozat:</p>
-        <p class="disclaimer-text" style="text-indent: 20px;">Ez a karaoke esemény egy teljesen privát kezdeményezésű, nonprofit baráti összejövetel, amely nem minősül hivatalosan szervezett rendezvénynek.
-            A programon való részvétel ingyenes és önkéntes. Az eseménynek semmilyen hivatalos vagy jogi kapcsolata nincs a Fishing on Orfű szervezőivel, márkájával vagy lebonyolításával.
-            Csupán egy csapat zeneszerető ember gyűlik össze hangolódni a nagyparkoló környékén. A változtatás jogát fenntartjuk.
-            A plakátokhoz az idei FOO plakátot vettük referenciaként, annak parodisztikus újragondolása.</p>
-    </div>
-
-    <script src="script.js"></script>
-
-</body>
-</html>
+    transition: transform 0.22s ease,
+                background 0.22s ease,
+                padding-left 0.22s ease;
+}
+.menuItem:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 12px;
+    letter-spacing: 1.5px;
+}
+#menu {
+    text-align: center;
+    font-size: 2rem;
+}
+#menu div {
+    margin: 20px 0;
+    cursor: pointer;
+}
+.page {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 300px;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 50;
+    overflow-y: auto; 
+    padding: 100px;
+}
+.page.active {
+    display: block; 
+}
+.page p {
+    text-indent: 30px;
+    font-size: 1.2rem;
+    min-width: 400px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #e0e0e0;
+    text-align: justify;
+}
+.page h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    padding-left: 90px;
+    min-width: 400px;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    letter-spacing: 1px;
+}
+.page h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    min-width: 400px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 0.5px;
+}
+.backButton {
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    z-index: 100;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    background-color: rgba(15, 15, 25, 0.6) ;
+    backdrop-filter: blur(5px) ;
+    padding: 10px ;
+    border-radius: 8px ;
+}
+.backButton:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 12px;
+    letter-spacing: 1.5px;
+}
+.imagePage {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 20px auto;
+}
+#program.active {
+    display: block !important;
+    overflow-y: auto; 
+    overflow-x: auto; 
+    position: fixed;
+    inset: 0;
+    top: 0px;
+    left: 300px;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 50;
+    padding: 0;
+}
+.tabbar {
+    position: fixed;
+    top: 80px;
+    left: 30px;
+    display: flex;
+    gap: 10px;
+    z-index: 25;
+}
+.tab {
+    padding: 7px 12px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.4);
+    color: white;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+}
+.tab:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+.tab.active {
+    background: white;
+    color: black;
+}
+.program-slider {
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    margin: 150px auto 40px auto;
+}
+.slider-img {
+    display: none;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.slider-img.desktop-active {
+    display: block;
+}
+#groupImage {
+    border-radius: 8px;
+}
+.disclaimer-title {
+    text-align: left;
+    font-size: 0.8rem !important;
+    opacity: 0.8;
+}
+.disclaimer-text {
+    text-align: justify;
+    font-size: 0.7rem !important;
+    opacity: 0.8;
+}
+@media (max-width: 768px), (orientation: landscape) and (max-height: 500px) {
+    html, body {
+        height: auto !important;
+        overflow-y: auto !important;
+        position: relative !important;
+    }
+    body {
+        padding-top: 30px;
+        background-image: url("images/background-mobile.jpg");
+    }
+    .intro {
+        font-size: clamp(0.1rem, 5vw, 2rem);
+        line-height: 2;
+        filter: url(#vekony-kontur) !important;
+        margin-top: 40px;
+    }
+    #homeImage {
+        max-width: 80% !important;  
+        height: auto !important;
+    }
+    #sidebar {
+        display: none !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: rgba(0, 0, 0, 0.7) !important;
+        z-index: 150 !important;
+        transform: none !important;
+        margin: 0 !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        gap: 15px !important;
+    } 
+    #menuIcon {
+        display: block !important;
+        position: fixed !important;
+        top: 20px !important;
+        right: 20px !important;
+        width: 40px !important;
+        height: auto !important;
+        z-index: 200 !important;
+        cursor: pointer;
+        background-color: rgba(15, 15, 25, 0.6) !important;
+        padding: 5px !important;
+        backdrop-filter: blur(5px) !important;
+        border-radius: 8px !important;
+    }
+    .menuItem {
+        font-size: 1.5rem !important;
+        padding: 10px 20px !important;
+        border-radius: 10px !important;
+        background: transparent !important;
+        width: max-content !important;
+        text-align: center !important;
+    }
+    .menuItem:hover {
+        transform: none !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-bottom: 2px solid white;
+    }
+    #sidebar.open {
+        display: flex !important;
+        padding-top: 100px
+    }
+    .page {
+        left: 0 !important;
+        padding: 20px;
+        display: none;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: justify;
+        padding-top: 80px !important; 
+        overflow-y: auto;
+        background: rgba(0, 0, 0, 0.7);
+    }
+    .page h1 {
+        padding-left: 30px;
+    }
+    .page h2 {
+        margin: 10px;
+    }
+    .page p {
+        margin: 0;
+        padding-left: 10px;
+        padding-bottom: 20px;
+        min-width: 0px;
+    }
+    .page.active {
+        display: flex !important;
+    }       
+    .tabbar {
+        margin-bottom: 15px;
+    }
+    .tab {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+    .program-slider {
+        display: flex !important;
+        overflow-x: hidden !important;
+        scroll-behavior: smooth;
+        width: 95%;
+        margin-top: 60px;
+        padding-bottom: 20px;
+    }
+    .program-slider::-webkit-scrollbar {
+        display: none;
+    }
+    .slider-img {
+        display: block !important;
+        flex: 0 0 100%;
+        width: 100%;
+        object-fit: contain;
+        border-radius: 0;
+    }
+    .disclaimer-title {
+        text-align: left !important;
+        display: block !important;
+        width: 100% !important;
+    }
+    .disclaimer-text {
+        text-align: justify !important;
+        display: block !important;
+    }
+}
