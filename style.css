@@ -4,7 +4,7 @@ body {
     line-height: 1.6;
     letter-spacing: 0.5px;
     -webkit-font-smoothing: antialiased;
-    background-image: url("background.jpg");
+    background-image: url("images/background.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -230,7 +230,7 @@ body {
     }
     body {
         padding-top: 30px;
-        background-image: url("background-mobile.jpg");
+        background-image: url("images/background-mobile.jpg");
     }
     .intro {
         font-size: clamp(0.1rem, 5vw, 2.5rem);
