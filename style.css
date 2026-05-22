@@ -29,7 +29,7 @@ body {
 .start-anim .line-6 { animation: fadeInLine 2s ease-out 8.5s forwards; }
 
 .start-anim #homeImage {
-    animation: fadeInLine 3s ease-out 10.5s forwards;
+    animation: fadeInLine 2.8s ease-out 10s forwards;
 }
 
 @keyframes fadeInLine {
@@ -46,7 +46,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
     font-weight: 900;
-    line-height: 2.5;
+    line-height: 2;
     text-transform: uppercase;
     text-align: center;
     color: #ffffff;
@@ -260,8 +260,7 @@ body {
         background-image: url("images/background-mobile.jpg");
     }
     .intro {
-        font-size: clamp(0.1rem, 5vw, 2rem);
-        line-height: 2;
+        font-size: clamp(0.1rem, 5vw, 1.5rem);
         filter: url(#vekony-kontur) !important;
         margin-top: 40px;
     }
