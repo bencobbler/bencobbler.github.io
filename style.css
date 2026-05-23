@@ -26,10 +26,10 @@ body {
 .start-anim .line-2 { animation: fadeInLine 1.5s ease-out 2.5s forwards; }
 .start-anim .line-3 { animation: fadeInLine 1.5s ease-out 4s forwards; }
 .start-anim .line-4 { animation: fadeInLine 1.5s ease-out 5.5s forwards; }
-.start-anim .line-5 { animation: fadeInLine 2s ease-out 7.5s forwards; }
+.start-anim .line-5 { animation: fadeInLine 2s ease-out 7s forwards; }
 
 .start-anim #homeImage {
-    animation: fadeInLine 3s ease-out 9.5s forwards;
+    animation: fadeInLine 2s ease-out 9.5s forwards;
 }
 
 @keyframes fadeInLine {
@@ -64,7 +64,7 @@ body {
 }
 .diszkoleon {
     color: #E7BCA9;
-    letter-spacing: -1px;"
+    letter-spacing: -1px;
     font-weight: 800;
 }
 #homeImage {
@@ -268,6 +268,9 @@ body {
     #homeImage {
         max-width: 75% !important;  
         height: auto !important;
+    }
+    .imagePage {
+        width: 80%;
     }
     #sidebar {
         display: none !important;
