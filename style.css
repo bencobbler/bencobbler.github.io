@@ -249,6 +249,9 @@ body {
     font-size: 0.7rem !important;
     opacity: 0.8;
 }
+#rotate-warning {
+    display: none;
+}
 @media (max-width: 768px), (orientation: landscape) and (max-height: 500px) {
     html, body {
         height: auto !important;
@@ -379,5 +382,23 @@ body {
     .disclaimer-text {
         text-align: justify !important;
         display: block !important;
+    }
+}
+@media (max-width: 768px) and (orientation: landscape) {
+    #rotate-warning {
+        display: flex;
+        position: fixed;
+        inset: 0;
+        background: #0F0F19;
+        z-index: 99999;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        font-family: Arial, sans-serif;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 20px;
+        line-height: 1.8;
     }
 }
