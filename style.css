@@ -369,12 +369,13 @@ body {
 
     .page {
         left: 0 !important;
-        padding: 20px;
+        padding-top: 80px !important;
+        padding-left: 10px;
+        padding-right: 15px;
         display: none;
         flex-direction: column !important;
         justify-content: flex-start !important;
         align-items: justify;
-        padding-top: 80px !important;
         overflow-y: auto;
         overflow-x: hidden;
         background: rgba(0, 0, 0, 0.7);
