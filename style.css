@@ -289,18 +289,6 @@ body {
     border-radius: 8px;
 }
 
-.disclaimer-title {
-    text-align: left;
-    font-size: 0.8rem !important;
-    opacity: 0.8;
-}
-
-.disclaimer-text {
-    text-align: justify;
-    font-size: 0.7rem !important;
-    opacity: 0.8;
-}
-
 @media (max-width: 768px) {
 
     html,
