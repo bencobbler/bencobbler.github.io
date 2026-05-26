@@ -22,12 +22,12 @@ body {
     box-sizing: border-box;
 }
 
-.start-anim .line-1 {animation: fadeInLine 3s ease-out 0s forwards;}
-.start-anim .line-2 {animation: fadeInLine 1.5s ease-out 2.5s forwards;}
-.start-anim .line-3 {animation: fadeInLine 1.5s ease-out 4s forwards;}
-.start-anim .line-4 {animation: fadeInLine 1.5s ease-out 5.5s forwards;}
-.start-anim .line-5 {animation: fadeInLine 2s ease-out 7s forwards;}
-.start-anim #homeImage {animation: fadeInLine 2.5s ease-out 9s forwards;}
+.start-anim .line-1 {animation: fadeInLine 1.7s ease-out 0s forwards;}
+.start-anim .line-2 {animation: fadeInLine 1.2s ease-out 1.5s forwards;}
+.start-anim .line-3 {animation: fadeInLine 1.2s ease-out 2.5s forwards;}
+.start-anim .line-4 {animation: fadeInLine 1.2s ease-out 3.5s forwards;}
+.start-anim .line-5 {animation: fadeInLine 1.7s ease-out 4.5s forwards;}
+.start-anim #homeImage {animation: fadeInLine 2.7s ease-out 6s forwards;}
 
 @keyframes fadeInLine {
     from {
