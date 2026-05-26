@@ -329,7 +329,7 @@ body {
         flex-direction: column !important;
         justify-content: flex-start !important;
         align-items: center !important;
-        gap: 15px !important;
+        gap: 10px !important;
     }
 
     #menuIcon {
